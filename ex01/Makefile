@@ -1,5 +1,5 @@
-NAME = megaphone
-SRCS = megaphone.cpp
+NAME = phonebook
+SRCS = Main.cpp
 OBJS	=	${SRCS:%.c=${OBJDIR}/%.o}
 CFLAGS = -Werror -Wextra -Wall -std=c++98
 CC = c++
@@ -59,4 +59,3 @@ display_ascii:
 	@echo "$(END)"
 	@echo "${BOLD}${L_PURPLE} ✨CPP-Module00-ex00✨ ${GREEN}is ready 🎉 ${END}"
 	@echo "${BOLD}${BLUE}➜ Use ./${NAME} to run the program${END}"
-
