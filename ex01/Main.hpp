@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Main.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:37:13 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/25 16:08:27 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/25 19:34:05 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include "PhoneBook.hpp"
 # include "Contact.hpp"
+# include <unistd.h>
 
 // color
 # define BLACK "\033[0;30m"
