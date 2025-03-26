@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:01:24 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/25 20:03:16 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/03/26 10:01:06 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void animate_msg(std::string msg)
 			std::cout.flush() << colors[((i - shift) % 6) * -1] << msg[i];
 		}
 		std::cout << RESET;
-		usleep(40000);
+		usleep(70000);
 		shift++;
 	}
 	std::cout << std::endl;
@@ -42,10 +42,10 @@ void	display_help(void)
 {
 	std::cout << FAINT << "----------------------------------------" << std::endl << RESET;
 	std::cout << ITALIC <<"For use your phone book tap :" << RESET << std::endl;
-	std::cout << BOLD << "ADD : " << RESET << "for add a new contact" << std::endl;
-	std::cout << BOLD << "SEARCH : " << RESET << "for search a contact by id" << std::endl;
-	std::cout << BOLD << "EXIT : " << RESET << "for exit and loose all contacts" << std::endl;
-	std::cout << BOLD << "HELP : " << RESET << "for display this message" << std::endl;
+	std::cout << BOLD << "ADD : " << RESET << "to add a new contact" << std::endl;
+	std::cout << BOLD << "SEARCH : " << RESET << "to search a contact by id" << std::endl;
+	std::cout << BOLD << "EXIT : " << RESET << "to exit and lose all contacts" << std::endl;
+	std::cout << BOLD << "HELP : " << RESET << "to display this message" << std::endl;
 	std::cout << FAINT << "----------------------------------------" << std::endl << RESET;
 }
 
