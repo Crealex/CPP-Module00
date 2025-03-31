@@ -6,7 +6,7 @@
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:37:13 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/25 19:34:05 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/03/28 17:35:41 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "PhoneBook.hpp"
 # include "Contact.hpp"
 # include <unistd.h>
+# include <stdlib.h>
 
 // color
 # define BLACK "\033[0;30m"

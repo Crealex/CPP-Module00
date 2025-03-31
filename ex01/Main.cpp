@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:01:24 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/26 10:01:06 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/28 17:34:33 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int main()
 {
 	std::string buffer;
 
-	//std::cout << std::endl << "Welcome in your Awesome PhoneBook !" << std::endl << std::endl;
 	animate_msg("Welcome in your Awesome PhoneBook !");
 	display_help();
 	while (1)
@@ -64,7 +63,7 @@ int main()
 		else if (!buffer.compare("SEARCH"))
 			std::cout << "searching contact..." << std::endl;
 		else if (!buffer.compare("EXIT"))
-			std::cout << "exiting programm" << std::endl;
+			exit(0);
 		else if (!buffer.compare("HELP"))
 			display_help();
 		if (buffer.empty())

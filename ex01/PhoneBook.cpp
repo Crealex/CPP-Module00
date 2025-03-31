@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/25 15:39:47 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/28 17:46:20 by alexandre        ###   ########.fr       */
+/*   Created: 2025/03/28 17:38:17 by alexandre         #+#    #+#             */
+/*   Updated: 2025/03/28 17:46:12 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
+#include "Main.hpp"
 
-# define PHONEBOOK_HPP
-
-# include "Contact.hpp"
-
-class PhoneBook
+int PhoneBook::add(int id)
 {
-private:
-	Contact contacts[8];
-public:
-	Contact	search(int id);
-	int		add(int id);
-	void	exit();
-};
+	std::string buffer;
 
-#endif
+	std::cout << "Please enter first name :" << std::endl;
+	std::cin >> buffer;
+	PhoneBook::contacts[id].set_first_name(buffer);
+	std::cout << "First name  : " << buffer << " saved !" << std::endl;
+	std::cout << "Please enter last name :" << std::endl;
+
+}
