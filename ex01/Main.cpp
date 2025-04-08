@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:01:24 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/28 17:34:33 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/04/08 14:56:30 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,23 @@ void	display_help(void)
 int main()
 {
 	std::string buffer;
+	PhoneBook phonebook;
+	int id = 0;
 
 	animate_msg("Welcome in your Awesome PhoneBook !");
 	display_help();
+
 	while (1)
 	{
+		if (id > 8)
+				id = 0;
 		std::cin >> buffer;
 		if (!buffer.compare("ADD"))
+		{
 			std::cout << "adding contact..." << std::endl;
+			phonebook.add(id);
+			id++;
+		}
 		else if (!buffer.compare("SEARCH"))
 			std::cout << "searching contact..." << std::endl;
 		else if (!buffer.compare("EXIT"))
