@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:36:51 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/31 10:06:24 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/04/08 18:31:31 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ private :
 	std::string	first_name;
 	std::string	last_name;
 	std::string	nickname;
-	int			phone_number;
+	std::string	phone_number;
 	std::string	darkest_secret;
 public:
 	void	set_first_name(std::string first_name);
