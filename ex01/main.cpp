@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Main.cpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:01:24 by atomasi           #+#    #+#             */
-/*   Updated: 2025/04/08 18:40:37 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/04/09 16:05:18 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Main.hpp"
+#include "main.hpp"
+#include "PhoneBook.hpp"
 void animate_msg(std::string msg)
 {
 	std::string colors[] = {
@@ -53,6 +54,7 @@ int main()
 	std::string buffer;
 	PhoneBook phonebook;
 	int id = 0;
+	int id_max = 0;
 
 	animate_msg("Welcome in your Awesome PhoneBook !");
 	display_help();
@@ -60,18 +62,20 @@ int main()
 	while (1)
 	{
 		if (id > 8)
-				id = 0;
+			id = 0;
+		if (id_max > 8)
+			id_max = 8;
+		std::cout << "> ";
 		std::cin >> buffer;
 		if (!buffer.compare("ADD"))
 		{
-			std::cout << "adding contact..." << std::endl;
 			phonebook.add(id);
 			id++;
 		}
 		else if (!buffer.compare("SEARCH"))
 			std::cout << "searching contact..." << std::endl;
 		else if (!buffer.compare("EXIT"))
-			exit(0);
+			phonebook.ft_exit();
 		else if (!buffer.compare("HELP"))
 			display_help();
 		if (buffer.empty())

@@ -1,5 +1,5 @@
 NAME = phonebook
-SRCS = Main.cpp
+SRCS = main.cpp PhoneBook.cpp Contact.cpp
 OBJS	=	${SRCS:%.c=${OBJDIR}/%.o}
 CFLAGS = -Werror -Wextra -Wall -std=c++98
 CC = c++
