@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "main.hpp"
+#include <string>
 
 void	display_contacts(std::string id, std::string firstname, std::string lastname, std::string nickname)
 {
@@ -35,7 +36,7 @@ void	display_contacts(std::string id, std::string firstname, std::string lastnam
 	std::cout << nickname << std::endl;
 }
 
-Contact PhoneBook::search(int id, int id_max)
+void	PhoneBook::search(int id, int id_max)
 {
 
 	int i = 0;
@@ -47,6 +48,11 @@ Contact PhoneBook::search(int id, int id_max)
 	}
 	std::cout << "Please select a index :" << std::endl;
 	std::cin >> id;
+	if (id > id_max)
+	{
+		std::cout << RED << "invalid index" << RESET << std::endl;
+		return ;
+	}
 	std::string id_str = std::to_string(id);
 	std::string firstname = this->contacts[id].get_first_name();
 	std::string lastname = this->contacts[id].get_last_name();

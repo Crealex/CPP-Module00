@@ -21,7 +21,7 @@ class PhoneBook
 private:
 	Contact contacts[8];
 public:
-	Contact	search(int id, int id_max);
+	void	search(int id, int id_max);
 	int		add(int id);
 	void	ft_exit();
 };

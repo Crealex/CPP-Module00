@@ -17,6 +17,7 @@
 # include "PhoneBook.hpp"
 # include "Contact.hpp"
 # include <unistd.h>
+# include <string>
 # include <stdlib.h>
 
 // color
