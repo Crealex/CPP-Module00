@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:01:24 by atomasi           #+#    #+#             */
-/*   Updated: 2025/04/09 16:05:18 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/04/10 15:01:37 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void animate_msg(std::string msg)
 			std::cout.flush() << colors[((i - shift) % 6) * -1] << msg[i];
 		}
 		std::cout << RESET;
-		usleep(70000);
+		usleep(50000);
 		shift++;
 	}
 	std::cout << std::endl;
@@ -54,31 +54,33 @@ int main()
 	std::string buffer;
 	PhoneBook phonebook;
 	int id = 0;
-	int id_max = 0;
+	int id_max = -1;
 
 	animate_msg("Welcome in your Awesome PhoneBook !");
 	display_help();
 
 	while (1)
 	{
-		if (id > 8)
+		if (id > 7)
 			id = 0;
-		if (id_max > 8)
-			id_max = 8;
+		if (id_max > 7)
+			id_max = 7;
 		std::cout << "> ";
-		std::cin >> buffer;
+		std::getline(std::cin, buffer);
 		if (!buffer.compare("ADD"))
 		{
+			std::cout << "id :" << id << std::endl;
 			phonebook.add(id);
 			id++;
+			id_max++;
 		}
 		else if (!buffer.compare("SEARCH"))
-			std::cout << "searching contact..." << std::endl;
+			phonebook.search(id_max);
 		else if (!buffer.compare("EXIT"))
 			phonebook.ft_exit();
 		else if (!buffer.compare("HELP"))
 			display_help();
-		if (buffer.empty())
+		if (std::cin.eof() || std::cin.fail())
 			break;
 		buffer.clear();
 	}
