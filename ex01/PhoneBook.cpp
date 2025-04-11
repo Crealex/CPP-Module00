@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 17:38:17 by alexandre         #+#    #+#             */
-/*   Updated: 2025/04/10 15:01:19 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/04/11 10:47:17 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,15 @@ void	PhoneBook::search(int id_max)
 		display_contacts(i, this->contacts[i].get_first_name(), this->contacts[i].get_last_name(), this->contacts[i].get_nick_name());
 		i++;
 	}
-	std::cout << "Please select an index :" << std::endl;
+	std::cout << "Please select an index :" << std::endl << ">> ";
 	std::cin >> id;
-	if (id > id_max)
+	if (std::cin.eof())
+		return ;
+	if (id > id_max || std::cin.fail())
 	{
 		std::cout << RED << "invalid index" << RESET << std::endl;
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		return ;
 	}
 	std::string firstname = this->contacts[id].get_first_name();
@@ -68,6 +72,7 @@ void	PhoneBook::search(int id_max)
 	std::string number = this->contacts[id].get_number();
 	std::string darkest_secret = this->contacts[id].get_darkest_secret();
 	display_selected_contact(firstname, lastname, nickname, number, darkest_secret);
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
 std::string safe_getline(std::string str)
@@ -84,6 +89,36 @@ std::string safe_getline(std::string str)
 	return (buffer);
 }
 
+bool is_valid(std::string str)
+{
+	if (str.empty())
+		return (0);
+	for (long unsigned int i = 0; i < str.length(); i++)
+	{
+		if (!std::isdigit(str[i]))
+		{
+			return (0);
+		}
+	}
+	return (1);
+}
+
+std::string safe_getline_num(std::string str)
+{
+	std::string buffer;
+
+	while (buffer.empty() || !is_valid(buffer))
+	{
+		std::cout << str << std::endl << ">> ";
+		std::getline(std::cin, buffer);
+		if (std::cin.fail() || std::cin.eof())
+			return (buffer);
+		if (!is_valid(buffer))
+			std::cout << RED << std::endl << "Please enter a valid number !" << RESET << std::endl << std::endl;
+	}
+	return (buffer);
+}
+
 int PhoneBook::add(int id)
 {
 	std::string buffer;
@@ -92,27 +127,27 @@ int PhoneBook::add(int id)
 	if (buffer.empty())
 		return (0);
 	this->contacts[id].set_first_name(buffer);
-	std::cout << "First name  : " << buffer << " saved !" << std::endl << std::endl;
+	std::cout << "First name  : " << BOLD << buffer << RESET << GREEN << " saved !" << RESET << std::endl << std::endl;
 	buffer = safe_getline("Please enter last name :");
 	if (buffer.empty())
 		return (0);
 	this->contacts[id].set_last_name(buffer);
-	std::cout << "Last name  : " << buffer << " saved !" << std::endl << std::endl;
+	std::cout << "Last name  : " << BOLD << buffer << RESET << GREEN << " saved !" << RESET << std::endl << std::endl;
 	buffer = safe_getline("Please enter nickname :");
 	if (buffer.empty())
 		return (0);
 	this->contacts[id].set_nick_name(buffer);
-	std::cout << "Nickname  : " << buffer << " saved !" << std::endl << std::endl;
-	buffer = safe_getline("Please enter phone number");
+	std::cout << "Nickname  : " << BOLD << buffer << RESET << GREEN << " saved !" << RESET << std::endl << std::endl;
+	buffer = safe_getline_num("Please enter phone number");
 	if (buffer.empty())
 		return (0);
 	this->contacts[id].set_number(buffer);
-	std::cout << "Phone number  : " << buffer << " saved !" << std::endl << std::endl;
+	std::cout << "Phone number  : " << BOLD << buffer << RESET << GREEN << " saved !" << RESET << std::endl << std::endl;
 	buffer = safe_getline("Please enter darkest secret :");
 	if (buffer.empty())
 		return (0);
 	this->contacts[id].set_darkest_secret(buffer);
-	std::cout << "Darkest secret  : " << buffer << " saved !" << std::endl <<std::endl;
+	std::cout << "Darkest secret  : " << BOLD << buffer << RESET << GREEN << " saved !" << RESET << std::endl << std::endl;
 	std::cout << GREEN << BOLD << "New contact saved !" << RESET << std::endl << std::endl;
 	return (1);
 }

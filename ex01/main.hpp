@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:37:13 by atomasi           #+#    #+#             */
-/*   Updated: 2025/04/10 13:48:47 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/04/11 10:24:56 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <stdlib.h>
 # include <limits>
 # include <iomanip>
+# include <cstdlib>
 
 // color
 # define BLACK "\033[0;30m"

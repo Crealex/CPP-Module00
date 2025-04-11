@@ -1,5 +1,5 @@
-NAME = phonebook
-SRCS = main.cpp PhoneBook.cpp Contact.cpp
+NAME = job
+SRCS = tests.cpp Account.cpp
 OBJS	=	${SRCS:%.c=${OBJDIR}/%.o}
 CFLAGS = -Werror -Wextra -Wall -std=c++98
 CC = c++
@@ -57,5 +57,5 @@ display_ascii:
 		cat ascii_art.txt; \
 	fi
 	@echo "$(END)"
-	@echo "${BOLD}${L_PURPLE} ✨CPP-Module00-ex01✨ ${GREEN}is ready 🎉 ${END}"
+	@echo "${BOLD}${L_PURPLE} ✨CPP-Module00-ex02✨ ${GREEN}is ready 🎉 ${END}"
 	@echo "${BOLD}${BLUE}➜ Use ./${NAME} to run the program${END}"

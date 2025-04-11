@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:01:24 by atomasi           #+#    #+#             */
-/*   Updated: 2025/04/10 15:01:37 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/04/11 10:51:00 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void animate_msg(std::string msg)
 void	display_help(void)
 {
 	std::cout << FAINT << "----------------------------------------" << std::endl << RESET;
-	std::cout << ITALIC <<"For use your phone book tap :" << RESET << std::endl;
+	std::cout << ITALIC <<"For use your phonebook tap :" << RESET << std::endl;
 	std::cout << BOLD << "ADD : " << RESET << "to add a new contact" << std::endl;
 	std::cout << BOLD << "SEARCH : " << RESET << "to search a contact by id" << std::endl;
 	std::cout << BOLD << "EXIT : " << RESET << "to exit and lose all contacts" << std::endl;
@@ -69,7 +69,6 @@ int main()
 		std::getline(std::cin, buffer);
 		if (!buffer.compare("ADD"))
 		{
-			std::cout << "id :" << id << std::endl;
 			phonebook.add(id);
 			id++;
 			id_max++;
